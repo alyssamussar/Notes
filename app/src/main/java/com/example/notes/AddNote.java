@@ -21,7 +21,7 @@ public class AddNote extends AppCompatActivity {
     public void saveMethod(View view) {
         //1. Get editText view and the content that the user entered
         EditText editText = (EditText) findViewById(R.id.editNote);
-        content = editText.toString();
+        content = editText.getText().toString();
 
         //2. Initialize SQLite Database instance
         Context context = getApplicationContext();
@@ -40,7 +40,7 @@ public class AddNote extends AppCompatActivity {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         String date = dateFormat.format(new Date());
 
-        if (noteid == 1) { //Add note
+        if (noteid == -1) { //Add note
             title = "NOTE_" + (ViewNotes.notes.size()+1);
             dbHelper.saveNotes(username, title, content, date);
         } else { //Update note

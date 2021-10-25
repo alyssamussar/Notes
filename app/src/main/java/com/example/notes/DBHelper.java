@@ -43,7 +43,6 @@ public class DBHelper {
         }
         c.close();
         sqLiteDatabase.close();
-
     }
 
     public void updateNote(String title, String date, String content, String username) {
